@@ -12,4 +12,4 @@ import AppContainer from './src/AppContainer'
 // regi comp
 // app name
 // () => appcon, pass func
-AppRegistry.registerComponent('HAgnosticNews', () => AppContainer)
+AppRegistry.registerComponent('MyHakNews', () => AppContainer)

@@ -101,7 +101,7 @@ export default class App extends React.Component {
 
           <Overlay visible={overlayVisible}>
             <Text style={{fontSize: 18}}>
-              <Text style={{fontWeight: 'bold'}}>HAgnostic News</Text> is a simple Hacker News reader for the Web and a React Native app (Android / iOS).
+              <Text style={{fontWeight: 'bold'}}>My Hak News</Text> is a simple Hacker News reader for the Web and a React Native app (Android / iOS).
             </Text>
             <Text style={{fontSize: 18, marginTop: 20}}>
               Made with ❤ by
@@ -122,7 +122,7 @@ export default class App extends React.Component {
             <View style={[styles.row, { height: 50 }]}>
               <View style={styles.row}>
                 <Image source={logo} style={{width: 20}} />
-                <Text style={[{fontWeight: 'bold', paddingLeft: 4}]}>HAgnostic News</Text>
+                <Text style={[{fontWeight: 'bold', paddingLeft: 4}]}>My Hak News</Text>
                 <Text style={[{fontSize: 12, paddingLeft: 4}]}> {Platform.OS}</Text>
               </View>
               <TouchableHighlight

@@ -1,5 +1,17 @@
 import re
 
+# install buck
+#
+# npm start
+#
+# cd android
+#
+# keytool
+#
+# gradlew, make all gradle dep to buck
+#
+# buck install
+#
 # To learn about Buck see [Docs](https://buckbuild.com/).
 # To run your application with Buck:
 # - install Buck
@@ -10,15 +22,22 @@ import re
 # - `buck install -r android/app` - compile, install and run application
 #
 
+# lib deps
 lib_deps = []
+
+# for jar file in libs/*.jar
 for jarfile in glob(['libs/*.jar']):
+  # jars__/xxxx/xxx.jar
   name = 'jars__' + re.sub(r'^.*/([^/]+)\.jar$', r'\1', jarfile)
+  
+  # lib deps, append name
   lib_deps.append(':' + name)
   prebuilt_jar(
     name = name,
     binary_jar = jarfile,
   )
 
+# .arr file amber graphic file
 for aarfile in glob(['libs/*.aar']):
   name = 'aars__' + re.sub(r'^.*/([^/]+)\.aar$', r'\1', aarfile)
   lib_deps.append(':' + name)
@@ -27,11 +46,15 @@ for aarfile in glob(['libs/*.aar']):
     aar = aarfile,
   )
 
+# android lib
+# all lib
 android_library(
   name = 'all-libs',
   exported_deps = lib_deps
 )
 
+# app-code
+# src/main/java/.../.../*.java
 android_library(
   name = 'app-code',
   srcs = glob([
@@ -44,17 +67,25 @@ android_library(
   ],
 )
 
+# com.hagnosticnews
+# config
 android_build_config(
   name = 'build_config',
   package = 'com.hagnosticnews',
 )
 
+
+# android resource
 android_resource(
   name = 'res',
   res = 'src/main/res',
   package = 'com.hagnosticnews',
 )
 
+
+# android, binary
+# src/main/manifest.xml
+# key store
 android_binary(
   name = 'app',
   package_type = 'debug',

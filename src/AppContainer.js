@@ -1,5 +1,7 @@
 /* global fetch */
+// get react
 import React from 'react'
+// linking and paltform from react native
 import { Linking, Platform } from 'react-native'
 
 import App from './App'
