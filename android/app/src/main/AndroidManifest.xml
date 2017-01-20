@@ -1,15 +1,29 @@
+<!-- manifest -->
+<!-- xmlns, android -->
+<!-- schema android com -->
+<!-- apk, res, android -->
+<!-- pak -->
+<!-- verison code, version name-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hagnosticnews"
+    package="com.kenpeter.myhaknews"
     android:versionCode="1"
     android:versionName="1.0">
 
+    <!-- user permission -->
+    <!-- android name -->
+    <!-- android permission, user internet -->
     <uses-permission android:name="android.permission.INTERNET" />
+    
+    <!-- user permission, use sys alter -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
+    <!-- min sdk 16, target sdk 22-->
     <uses-sdk
         android:minSdkVersion="16"
         android:targetSdkVersion="22" />
 
+    <!-- android:name, main app -->
+    <!-- -->
     <application
       android:name=".MainApplication"
       android:allowBackup="true"

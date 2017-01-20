@@ -4,16 +4,37 @@ import React from 'react'
 // linking and paltform from react native
 import { Linking, Platform } from 'react-native'
 
+// what app container is wrap the view
+// change the view component state
+// passing methods to the view component
 import App from './App'
 
+// export
+// default
+// class
+// app container
+// extends
+// react component
 export default class AppContainer extends React.Component {
+  // constructor
+  // props
   constructor (props) {
+    // super
+    // props
     super(props)
+    
+    // this
+    // state
     this.state = {
+      // filter top or latest
       filter: 'Top', // 'Latest''
+      // page 0
       page: 0,
+      // no errors, obj
       errors: {},
+      // items array
       items: []
+      
     // items: [
     //   {
     //     created_at: "2016-08-08T13:09:09.000Z",
@@ -32,26 +53,48 @@ export default class AppContainer extends React.Component {
     //   },
     // ]
     }
-    this.loadMore = this.loadMore.bind(this)
-    this.loadItems = this.loadItems.bind(this)
-    this.openUrl = this.openUrl.bind(this)
-    this.toggleOverlay = this.toggleOverlay.bind(this)
+    
+    // bind load more
+    this.loadMore = this.loadMore.bind(this);
+    
+    // load item
+    this.loadItems = this.loadItems.bind(this);
+    
+    // open url
+    this.openUrl = this.openUrl.bind(this);
+    
+    // toggle overlay
+    this.toggleOverlay = this.toggleOverlay.bind(this);
   }
 
+  
+  // jquery ready
   componentDidMount () {
     // default items load
+    // this state filter
     this.loadItems(this.state.filter)
   }
 
+  // pass url
+  // open url
   openUrl (url) {
+    // if web
     if (Platform.OS === 'web') {
-      window.open(url, '_blank')
+      // window
+      // open
+      // url
+      // open blank
+      window.open(url, '_blank');
     }
+    
+    // android or ios
     if (Platform.OS === 'android' || Platform.OS === 'ios') {
+      // linking openurl
       Linking.openURL(url).catch(err => console.error('An error occurred', err))
     }
   }
 
+  // 
   loadItems (filter) {
     this.setState({filter: filter})
     // HACK: to avoid React state change race condition
@@ -59,6 +102,7 @@ export default class AppContainer extends React.Component {
       this.loadMore('reset')
     }, 0)
   }
+
 
   loadMore (mode) {
     const page = (mode === 'reset') ? 0 : this.state.page

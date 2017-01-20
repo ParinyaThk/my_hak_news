@@ -1,6 +1,9 @@
 <resources>
-
-    <!-- Base application theme. -->
+  <!-- res -->
+  <!-- style app theme-->
+  <!-- parent -->
+  <!-- theme, app, compat, light, no action bar-->
+  <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
     </style>

@@ -1,5 +1,12 @@
+// apply plugin
+// com android app
 apply plugin: "com.android.application"
 
+// import
+// com
+// android
+// build
+// output file
 import com.android.build.OutputFile
 
 /**
@@ -65,8 +72,14 @@ import com.android.build.OutputFile
  * ]
  */
 
+// apply from
+// ../..
+// react-native package has 
+// react.gradle
 apply from: "../../node_modules/react-native/react.gradle"
 
+// def xxxxx = false
+// x86 vs ARM
 /**
  * Set this to true to create two separate APKs instead of one:
  *   - An APK that only works on ARM devices
@@ -77,17 +90,25 @@ apply from: "../../node_modules/react-native/react.gradle"
  */
 def enableSeparateBuildPerCPUArchitecture = false
 
+// proguard removes unused stuff to make it smaller
+// 
 /**
  * Run Proguard to shrink the Java bytecode in release builds.
  */
 def enableProguardInReleaseBuilds = false
 
+// android sdk verison 23
+// build tool 23.0.1
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
 
+    // default config
+    // app id
+    // min sdk
+    // target sdk
     defaultConfig {
-        applicationId "com.hagnosticnews"
+        applicationId "com.kenpeter.myhaknews"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
@@ -97,6 +118,8 @@ android {
         }
     }
     
+    // sign config
+    // this can set in ~/.grandle/gradle.properties
     signingConfigs {
         release {
             if (project.hasProperty("MYAPP_RELEASE_STORE_FILE")) {
@@ -108,6 +131,15 @@ android {
         }
     }
     
+    // abi === applicaitn binary interface
+    // different handset uses diff cpus.
+    // splits what
+    // splits
+    // abi
+    // reset
+    // enable diff cup apk
+    // no universal
+    // include arm, x86
     splits {
         abi {
             reset()
@@ -116,13 +148,26 @@ android {
             include "armeabi-v7a", "x86"
         }
     }
+    
+    // build types
+    // release
     buildTypes {
-        release {
-            minifyEnabled enableProguardInReleaseBuilds
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-            signingConfig signingConfigs.release
-        }
+      release {
+        // minify enable, enable proguard in release builds
+        minifyEnabled enableProguardInReleaseBuilds
+        // pro guard files, get default proguard file
+        // proguard-android.txt
+        // proguard-rules.pro
+        proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        
+        // sign config, 
+        // sign config
+        // release
+        signingConfig signingConfigs.release
+      }
     }
+    
+    // 
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
         variant.outputs.each { output ->

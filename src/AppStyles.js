@@ -9,8 +9,7 @@ import { color } from 'react-native-material-design-styles'
 // style sheet
 // create
 export default StyleSheet.create({
-  // about link, it is like a class
-  // 
+  // link with orange bold color and bold text
   aboutLink: {
     // orange color
     color: color.paperOrange600.color,
@@ -45,7 +44,7 @@ export default StyleSheet.create({
   
   // header orange 500
   header: {
-    backgroundColor: color.paperOrange500.color
+    backgroundColor: color.paperBlue300.color
   },
   
   // flex: <'flex-grow'> <'flex-shrink'> <'flex-basis'>
@@ -132,15 +131,17 @@ export default StyleSheet.create({
     // borderWidth: 1
   },
   
+  
   // scroll view
-  // content style
+  // content style, some padding top and bottom
   scrollViewContentContainerStyle: {
     // pad 2
     paddingTop: 2,
     // pad bottom 2
     paddingBottom: 2
   },
-  // button
+  
+  // button, top or latest
   button: {
     paddingLeft: 10,
     paddingRight: 10,
@@ -148,12 +149,16 @@ export default StyleSheet.create({
     paddingBottom: 8,
     borderRadius: 20
   },
+  
+  
   // button orange
   // back color organge 500
   buttonOrange: {
     // borderColor:'orange',
-    backgroundColor: color.paperDeepOrange500.color
+    backgroundColor: color.googleRed500.color
   },
+  
+  
   // gray
   buttonGray: {
     // borderColor:'gray',
